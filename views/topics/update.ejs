@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create A Topic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/customShow.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+	<link rel="stylesheet" href="/css/tailwind.css" />
+
+	<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+  </head>
+
+  <body>
+
+    <!--Nav Container-->
+    <div class="tw-relative tw-container tw-mx-auto">
+		<!--Flex Container for All Items-->
+		<div class="tw-flex tw-items-center tw-justify-between">
+		  <!--Flex Container for Logo Menu-->
+		  <div class="tw-flex tw-items-center tw-space-x-20">
+			<!--Logo-->
+			<img
+			  src="/img/CuetForum.png"
+			  alt="logo"
+			  class="tw-w-28 tw-h-30 mx-6" />
+			<!--Left Menu-->
+			<div class="tw-hidden tw-space-x-8 tw-font-bold lg:tw-flex">
+			  <a href="/" class="tw-text-slate-500 hover:tw-text-gray-800"
+				>Home</a
+			  >
+			  <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800"
+				>About Us</a
+			  >
+			  <!-- <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Create Topic</a> -->
+			</div>
+		  </div>
+  
+		  <!--Right Button Menu-->
+		  <div
+			class="tw-hidden tw-items-center tw-space-x-6 tw-font-bold tw-text-slate-500 lg:tw-flex">
+			<% if (!username) { %>
+			<a href="/login" class="hover:tw-text-gray-800">Login</a>
+			<a
+			  href="/register"
+			  class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70"
+			  >Register</a
+			>
+			<% } else { %>
+				<a href="/topic"
+                class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 transition duration-500 hover:tw-opacity-70 hover:tw-text-gray-800">Create Topic</a>
+				<ul>
+					<li class="nav-item dropdown tw-z-50  ">
+						<!--DBP_NOTES: z-index means the order of the element. Higher the z-index, the element will be on top of the other elements-->
+						<a class="nav-link dropdown-toggle hover:tw-text-gray-800 " href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<%= username %> &#9662;
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" name="Profile" href="#">Edit Profile</a></li>
+							<li><a class="dropdown-item" name="About" href="#">Explore</a></li>
+							<li><a class="dropdown-item" name="LogOut" href="/Logout">Logout</a></li>
+							<!--DBP_NOTES: a function which will end the session-->
+						</ul>
+					</li>
+			  <% } %>
+			</ul>
+		  </div>
+  
+		  <!--@todo Hamburger Menu-->
+		</div>
+		<!--@todo Mobile Menu-->
+	  </div>
+
+
+	  <div class="container tw-min-h-screen">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="main-col">
+					<div class="block">
+						<h1 class="pull-left">Create A Topic</h1>
+						<div class="clearfix"></div>
+						<hr>
+						<form role="form" action="/update/<%= topic.id %>" method="post" >
+							<div class="form-group">
+								<label>Topic Title</label>
+								<input type="text" class="form-control" name="title" placeholder="Enter Post Title" value="<%= topic.title %>">
+							</div>
+							<div class="form-group">
+								<label>Category</label>
+								<select class="form-control" name="category">
+									<option <%= topic.category === 'Software' ? 'selected' : '' %>>Software</option>
+									<option <%= topic.category === 'AI' ? 'selected' : '' %>>AI</option>
+									<option <%= topic.category === 'Cyber Security' ? 'selected' : '' %>>Cyber Security</option>
+									<option <%= topic.category === 'Data Science' ? 'selected' : '' %>>Data Science</option>
+									<option <%= topic.category === 'Cloud & Hosting' ? 'selected' : '' %>>Cloud & Hosting</option>
+							</select>
+							</div>
+								<div class="form-group">
+									<label>Topic Body</label>
+									<textarea id="body" rows="10" cols="80" class="form-control" name="body"><%= topic.body %> <%= topic.id %></textarea>
+									<script>CKEDITOR.replace('body');</script>
+								</div>
+							<button type="submit" class="color btn btn-default">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div id="sidebar">
+			
+					
+					<div class="block">
+					<h3>Categories</h3>
+					<div class="list-group">
+						<a href="#" class="list-group-item active">All Topics <span class="color badge pull-right">14</span></a> 
+						<a href="#" class="list-group-item">Software<span class="color badge pull-right">4</span></a>
+						<a href="#" class="list-group-item">AI<span class="color badge pull-right">9</span></a>
+						<a href="#" class="list-group-item">Cyber Security <span class="color badge pull-right">12</span></a>
+						<a href="#" class="list-group-item">Data Science<span class="color badge pull-right">7</span></a>
+						<a href="#" class="list-group-item">Cloud & Hosting <span class="color badge pull-right">3</span></a>
+					</div>
+				</div>	
+				</div>
+			</div>
+		</div>
+    </div><!-- /.container -->
+    
+    
+  </body>
+</html>

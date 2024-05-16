@@ -1,0 +1,48 @@
+    <!--Nav Container-->
+<div class="tw-relative tw-container tw-mx-auto">
+    <!--Flex Container for All Items-->
+    <div class="tw-flex tw-items-center tw-justify-between">
+        <!--Flex Container for Logo Menu-->
+        <div class="tw-flex tw-items-center tw-space-x-20">
+            <!--Logo-->
+            <img src="img/CuetForum.png" alt="logo" class="tw-w-28 tw-h-30 mx-6">
+            <!--Left Menu-->
+            <div class="tw-hidden tw-space-x-8 tw-font-bold lg:tw-flex">
+                <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Home</a>
+                <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">About Us</a>
+                <!-- <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Create Topic</a> -->
+            </div>
+        </div>
+
+        <!--Right Button Menu-->
+        <div class="tw-hidden tw-items-center tw-space-x-6 tw-font-bold tw-text-slate-500 lg:tw-flex">
+			<% if (!username) { %>
+            <a href="/login" class="hover:tw-text-gray-800">Login</a>
+            <a href="/register"
+                class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70">Register</a>
+			<% } else { %>
+				<a href="/topic"
+                class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70">Create Topic</a>
+				<ul>
+					<li class="nav-item dropdown hover:tw-opacity-70">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							<%= username %> &#9662;
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item" name="LogOut" href="/logout">Logout</a></li>
+							<!--DBP_NOTES: a function which will end the session-->
+						</ul>
+					</li>
+					<% } %>
+		</ul>
+
+        </div>
+
+        <!--@todo Hamburger Menu-->
+    </div>
+    <!--@todo Mobile Menu-->
+</div>

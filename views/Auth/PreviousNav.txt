@@ -1,0 +1,49 @@
+	
+    ////Previous Navbar Components
+
+    
+    <div class="navbar navbar-inverse navbar-fixed-top flex  items-center justify-between px-10 py-10"
+		role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand mx-3 cursor-pointer" href="/">Cuet Forum</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="active"><a href="/">Home</a></li>
+					<% if (!username) { %>
+						<li><a href="/register">Register</a></li>
+						<li><a href="/login">Login</a></li>
+						<% } else { %>
+							<li><a href="/topic">Create Topic</a></li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+									aria-expanded="false">
+									<%= username %> &#9662;
+								</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#">Action</a></li>
+									<li><a class="dropdown-item" href="#">Another action</a></li>
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+									<li><a class="dropdown-item" name="LogOut" href="/logout">Logout</a></li>
+									<!--DBP_NOTES: a function which will end the session-->
+								</ul>
+							</li>
+							<% } %>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+
+
+
+	///Tailwind Startup
+	npx tailwindcss --output public/css/tailwind/css --watch

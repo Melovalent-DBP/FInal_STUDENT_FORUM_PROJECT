@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create A Topic</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/custom.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+	<script src="js/ckeditor/ckeditor.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Forum</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/topic">Create Topic</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+
+    <!-- DBP_NOTES here I fetched the topic contents from the showtopic , and put them in the update page.
+    THen I will update. -->
+
+    <div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="main-col">
+					<div class="block">
+						<h1 class="pull-left">Create A Topic</h1>
+						<h4 class="pull-right">A Simple Forum</h4>
+						<div class="clearfix"></div>
+						<hr>
+
+						<!--DBP_NOTESIf there is any space in the title , then error can be occured . To fix it , -->
+						<form role="form" action="#>
+							<div class="form-group">
+								<label>Topic Title</label>
+								<input type="text" class="form-control" name="title" value="<%= topic.title %>">
+							</div>
+							<div class="form-group">
+								<label>Category</label>
+ 
+                                <!-- DBP_NOTES the most critical part -->
+                                
+								<select class="form-control" name="category">
+									<!-- <option <%= topic.category === 'Design' ? 'selected' : ''%> >Design</option>
+									<option <%= topic.category === 'Development' ? 'selected' : ''%> >Development</option>
+									<option <%= topic.category === 'Business' ? 'selected' : ''%> >Business & Marketing</option>
+									<option <%= topic.category === 'Search Engines' ? 'selected' : ''%> >Search Engines</option>
+									<option <%= topic.category === 'Cloud & Hosting' ? 'selected' : ''%> >Cloud & Hosting</option> -->   
+                                </select>
+							</div>
+								<div class="form-group">
+									<label>Topic Body</label>
+									<textarea id="body" rows="10" cols="80" class="form-control" name="body"><%= topic.body %></textarea>
+									<script>CKEDITOR.replace('body');</script>
+								</div>
+							<button type="submit" class="color btn btn-default">Update</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div id="sidebar">
+					<div class="block">
+					<h3>Categories</h3>
+					<div class="list-group">
+						<a href="#" class="list-group-item active">All Topics <span class="color badge pull-right">14</span></a> 
+						<a href="#" class="list-group-item">Design<span class="color badge pull-right">4</span></a>
+						<a href="#" class="list-group-item">Development<span class="color badge pull-right">9</span></a>
+						<a href="#" class="list-group-item">Business & Marketing <span class="color badge pull-right">12</span></a>
+						<a href="#" class="list-group-item">Search Engines<span class="color badge pull-right">7</span></a>
+						<a href="#" class="list-group-item">Cloud & Hosting <span class="color badge pull-right">3</span></a>
+					</div>
+				</div>	
+				</div>
+			</div>
+		</div>
+    </div><!-- /.container -->
+    
+
+	    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome To Forum</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="/public/css/" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="/public/css/style.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<style>
+		#BTN {
+			color: white;
+		}
+
+		#BTN2 {
+			color: white;
+		}
+
+		#BTN3 {
+			color: white;
+		}
+
+		#CuetForum {
+			color: white;
+		}
+
+		.navbar {
+			height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="navbar bg-violet-500 mb-30">
+		<div class="navbar-start">
+			<div class="dropdown">
+				<div tabindex="0" role="button">
+					<!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg> -->
+				</div>
+				<!-- <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"> -->
+				<!-- <li><a>Item 1</a></li>
+			  <li>
+				<a>Parent</a>
+				<ul class="p-2">
+				  <li><a>Submenu 1</a></li> dfcvbopl8
+				  <li><a>Submenu 2</a></li>
+				</ul>
+			  </li> -->
+				<!-- <li><a>Item 3</a></li>
+			</ul> -->
+			</div>
+			<a id="CuetForum" class="text-4xl mx-3 cursor-pointer">Cuet Forum</a>
+		</div>
+		<div class="navbar-center hidden lg:flex">
+			<ul class="menu menu-horizontal px-1">
+				<li><a>Item 1</a></li>
+				<li>
+					<details>
+						<summary>Parent</summary>
+						<ul class="p-2">
+							<li><a>Submenu 1</a></li>
+							<li><a>Submenu 2</a></li>
+						</ul>
+					</details>
+				</li>
+				<li><a>Item 3</a></li>
+			</ul>
+		</div>
+		<div class="navbar-end flex">
+			<a id="BTN" class="text-3xl px-5 cursor-pointer justify-items-center">Home</a>
+			<a id="BTN2" class="text-3xl px-5 cursor-pointer justify-items-center">Register</a>
+			<a id="BTN3" class="text-3xl px-5 cursor-pointer justify-items-center">Create Topic</a>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="main-col">
+					<div class="block">
+						<h1 class="pull-left">Welcome to Forum</h1>
+						<h4 class="pull-right">A Simple Forum</h4>
+						<div class="clearfix"></div>
+						<hr>
+						<ul id="topics">
+							<li class="topic">
+								<div class="row">
+									<div class="col-md-2 scroll-m-8 hover:scroll-m-0">
+										<img class="avatar pull-left pb-6 hover:scale-105" src="img/gravatar.png" />
+									</div>
+									<div class="col-md-10">
+										<div class="topic-content pull-right">
+											<h3><a href="topic.html">How did you learn CSS and HTML?</a></h3>
+											<div class="topic-info ">
+												<a href="category.html">Development</a> >> <a
+													href="profile.html">MOhamed Hassan</a> >> Posted on: June 12, 2014
+												<span
+													class="text-2xl text-slate-50 size-8 color badge pull-right animate-pulse">3</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="topic">
+								<div class="row">
+									<div class="col-md-2">
+										<img class="avatar pull-left pb-6 hover:scale-105" src="img/gravatar.png" />
+									</div>
+									<div class="col-md-10">
+										<div class="topic-content pull-right">
+											<h3><a href="topic.html">How to create new page dynamically in php</a> </h3>
+											<div class="topic-info">
+												<a href="category.html">Development</a> >> <a
+													href="profile.html">MOhamed Hassan</a> >> Posted on: June 12, 2014
+												<span
+													class="text-2xl text-slate-50 size-8 color badge pull-right animate-pulse">7</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="topic">
+								<div class="row">
+									<div class="col-md-2">
+										<img class="avatar pull-left pb-6 hover:scale-105" src="img/gravatar.png" />
+									</div>
+									<div class="col-md-10">
+										<div class="topic-content pull-right">
+											<h3><a href="topic.html">Google Panda - Who's affected?</a></h3>
+											<div class="topic-info">
+												<a href="category.html">Search Engines</a> >> <a
+													href="profile.html">MOhamed Hassan</a> >> Posted on: June 12, 2014
+												<span
+													class="text-2xl text-slate-50 size-8 color badge pull-right animate-pulse">4</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="topic">
+								<div class="row">
+									<div class="col-md-2">
+										<img class="avatar pull-left pb-6 hover:scale-105" src="img/gravatar.png" />
+									</div>
+									<div class="col-md-10">
+										<div class="topic-content pull-right">
+											<h3><a href="topic.html">Is Css3 is not working in IE8 and IE9?</a></h3>
+											<div class="topic-info">
+												<a href="category.html">Design</a> >> <a href="profile.html">MOhamed
+													Hassan</a> >> Posted on: June 12, 2014
+												<span
+													class="text-2xl text-slate-50 size-8 color badge pull-right animate-pulse">2</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="topic">
+								<div class="row">
+									<div class="col-md-2">
+										<img class="avatar pull-left hover:scale-105" src="img/gravatar.png" />
+									</div>
+									<div class="col-md-10">
+										<div class="topic-content pull-right">
+											<h3><a href="topic.html">Best Web Application Frameworks</a></h3>
+											<div class="topic-info">
+												<a href="category.html">Development</a> >> <a
+													href="profile.html">MOhamed Hassan</a> >> Posted on: June 12, 2014
+												<span
+													class="text-2xl text-slate-50 size-8 color badge pull-right animate-pulse">4</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="sidebar">
+
+
+					<div class="block">
+						<h3>Categories</h3>
+						<div class="list-group">
+							<a href="#" class="list-group-item active">All Topics <span
+									class="text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">14</span></a>
+							<a href="#" class="list-group-item">Design<span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">4</span></a>
+							<a href="#" class="list-group-item">Development<span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">9</span></a>
+							<a href="#" class="list-group-item">Business & Marketing <span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">12</span></a>
+							<a href="#" class="list-group-item">Search Engines<span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">7</span></a>
+							<a href="#" class="list-group-item">Cloud & Hosting <span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">3</span></a>
+						</div>
+					</div>
+
+					<div class="block" style="margin-top: 20px;">
+						<h3 class="margin-top: 40px">Forum Statistics</h3>
+						<div class="list-group">
+							<a href="#" class="list-group-item">Total Number of Users:<span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">4</span></a>
+							<a href="#" class="list-group-item">Total Number of Topics:<span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">9</span></a>
+							<a href="#" class="list-group-item">Total Number of Categories: <span
+									class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">12</span></a>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div><!-- /.container -->
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+  
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="shortcut icon" type="image/svg" href="img/login1.svg">
+    <!-- Custom styles for this template -->
+    <link href="css/customLog.css" rel="stylesheet">
+  
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/tailwind.css">
+  </head>
+
+  <body>
+
+
+          <!--Nav Container-->
+<div class="tw-relative tw-container tw-mx-auto tw-pt-0">
+  <!--Flex Container for All Items-->
+  <div class="tw-flex tw-items-center tw-justify-between">
+      <!--Flex Container for Logo Menu-->
+      <div class="tw-flex tw-items-center tw-space-x-20">
+          <!--Logo-->
+          <img src="img/CuetForum.png" alt="logo" class="tw-w-28 tw-h-30 mx-6">
+          <!--Left Menu-->
+          <div class="tw-hidden tw-space-x-8 tw-font-bold lg:tw-flex">
+              <a href="/" class="tw-text-slate-500 hover:tw-text-gray-800">Home</a>
+              <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">About Us</a>
+              <!-- <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Create Topic</a> -->
+          </div>
+      </div>
+
+      <!--Right Button Menu-->
+      <div class="tw-hidden tw-items-center tw-space-x-6 tw-font-bold tw-text-slate-500 lg:tw-flex">
+    <% if (!username) { %>
+          <a href="/login" class="hover:tw-text-gray-800">Login</a>
+          <a href="/register"
+              class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70">Register</a>
+    <% } else { %>
+      <a href="/topic"
+              class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70">Create Topic</a>
+      <ul>
+        <li class="nav-item dropdown hover:tw-opacity-70">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <%= username %> &#9662;
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" name="LogOut" href="/logout">Logout</a></li>
+            <!--DBP_NOTES: a function which will end the session-->
+          </ul>
+        </li>
+        <% } %>
+  </ul>
+
+      </div>
+
+      <!--@todo Hamburger Menu-->
+  </div>
+  <!--@todo Mobile Menu-->
+</div>
+
+
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="main-col">
+            <div class="block">
+              <h1 class="pull-left">Login</h1>
+              <h4 class="pull-right">A Simple Forum</h4>
+              <div class="clearfix"></div>
+              <hr />
+              <form
+                role="form"
+                method="post"
+                action="/login"
+              >
+
+                <div class="form-group">
+                  <label>Email Address*</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    placeholder="Enter Your Email Address"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label>Password*</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    placeholder="Enter A Password"
+                  />
+                </div>
+
+                <input
+                  name="register"
+                  type="submit"
+                  class="color btn btn-default"
+                  value="Register"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-4">
+          <div id="sidebar">
+
+            <div class="block">
+              <h3>Categories</h3>
+              <div class="list-group">
+                <a href="#" class="list-group-item active">All Topics
+                  <span class="color badge pull-right">14</span></a>
+                <a href="#" class="list-group-item">Software<span
+                    class="color badge pull-right"
+                  >4</span></a>
+                <a href="#" class="list-group-item">AI<span
+                    class="color badge pull-right"
+                  >9</span></a>
+                <a href="#" class="list-group-item">Cyber Security
+                  <span class="color badge pull-right">12</span></a>
+                <a href="#" class="list-group-item">Data Science<span
+                    class="color badge pull-right"
+                  >7</span></a>
+                <a href="#" class="list-group-item">Cloud & Hosting
+                  <span class="color badge pull-right">3</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- /.container -->
+
+
+
+
+
+    <div class="col-md-4">
+      <div class="sidebar">
+        <div class="block">
+          <h3>Categories</h3>
+          <div class="list-group block ">
+            <a href="#" class="list-group-item active">All Topics <span
+                class="text-2xl text-slate-50 size-8 color badge pull-right text-2xl tw-bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right animate-pulse"><%= count_all_topic %></span></a>
+            <!-- <a href="#" class="list-group-item">Software<span class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">5</span></a>
+            <a href="#" class="list-group-item">AI<span
+                class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">9</span></a>
+            <a href="#" class="list-group-item"> Cyber Security <span
+                class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">12</span></a>
+            <a href="#" class="list-group-item">Data Science<span
+                class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">7</span></a>
+            <a href="#" class="list-group-item">Cloud & Hosting <span
+                class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right">3</span></a> -->
+
+            <% categories.forEach(category => { %>
+              <a href="/category/<%= category.name %>"  class="list-group-item">
+                <%= category.name %> <span class="text-2xl text-slate-50 size-8 color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right animate-pulse"> <%= category.count_category %>  </span>
+              </a>
+            <% }); %>
+          </div>
+        </div>
+
+        <div class="block" style="margin-top: 20px;">
+          <h3 class="margin-top: 40px">Forum Statistics</h3>
+          <div class="list-group">
+            <a href="#" class="list-group-item">Total Number of Users:<span
+                class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right"><%= user_cnt %></span></a>
+            <a href="#" class="list-group-item">Total Number of Topics:<span
+                class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right"><%= count_all_topic %></span></a>
+            <a href="#" class="list-group-item">Total Number of Categories: <span
+                class="color badge pull-right text-2xl bg-slate-800 text-white opacity-95 size-8 color badge pull-right animate-pulse badge pull-right"><%= category_cnt %></span></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+    ></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

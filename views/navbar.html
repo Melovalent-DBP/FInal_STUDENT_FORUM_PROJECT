@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="/public/img/forum.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/PracticalCSS/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/tailwind.css">
+    <link href="/PracticalCSS/custom.css" rel="stylesheet">
+    <title>TailwInd Navbar</title>
+</head>
+
+<body>
+<!--Nav Container-->
+<div class="tw-relative tw-container tw-mx-auto">
+    <!--Flex Container for All Items-->
+    <div class="tw-flex tw-items-center tw-justify-between">
+        <!--Flex Container for Logo Menu-->
+        <div class="tw-flex tw-items-center tw-space-x-20">
+            <!--Logo-->
+            <img src="/public/img/CuetForum.png" alt="logo" class="tw-w-28 tw-h-30">
+            <!--Left Menu-->
+            <div class="tw-hidden tw-space-x-8 tw-font-bold lg:tw-flex">
+                <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Home</a>
+                <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">About Us</a>
+                <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Create Topic</a>
+            </div>
+        </div>
+
+        <!--Right Button Menu-->
+        <div class="tw-hidden tw-items-center tw-space-x-6 tw-font-bold tw-text-slate-500 lg:tw-flex">
+            <a href="/login" class="hover:tw-text-gray-800">Login</a>
+            <a href="/register"
+                class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70">Register</a>
+        </div>
+
+        <!--@todo Hamburger Menu-->
+    </div>
+    <!--@todo Mobile Menu-->
+</div>
+
+
+
+</body>
+
+</html>

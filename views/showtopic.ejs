@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Showing the Topic</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="/css/customShow.css" rel="stylesheet">
+
+  <link rel="shortcut icon" type="image/svg" href="img/stack.svg">
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+
+
+
+  <!--Nav Container-->
+  <div class="tw-relative tw-container tw-mx-auto">
+    <!--Flex Container for All Items-->
+    <div class="tw-flex tw-items-center tw-justify-between">
+      <!--Flex Container for Logo Menu-->
+      <div class="tw-flex tw-items-center tw-space-x-20">
+        <!--Logo-->
+        <img src="img/CuetForum.png" alt="logo" class="tw-w-28 tw-h-30 mx-6">
+        <!--Left Menu-->
+        <div class="tw-hidden tw-space-x-8 tw-font-bold lg:tw-flex">
+          <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Home</a>
+          <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">About Us</a>
+          <!-- <a href="#" class="tw-text-slate-500 hover:tw-text-gray-800">Create Topic</a> -->
+        </div>
+      </div>
+
+      <!--Right Button Menu-->
+      <div class="tw-hidden tw-items-center tw-space-x-6 tw-font-bold tw-text-slate-500 lg:tw-flex">
+        <% if (!username) { %>
+          <a href="/login" class="hover:tw-text-gray-800">Login</a>
+          <a href="/register"
+            class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70">Register</a>
+          <% } else { %>
+            <a href="/topic"
+              class="tw-bg-cyan tw-rounded-full tw-font-bold tw-text-white tw-px-8 tw-py-3 hover:tw-opacity-70">Create
+              Topic</a>
+            <ul>
+              <li class="nav-item dropdown hover:tw-opacity-70">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <%= username %> &#9662;
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" name="LogOut" href="/logout">Logout</a></li>
+                  <!--DBP_NOTES: a function which will end the session-->
+                </ul>
+              </li>
+              <% } %>
+            </ul>
+
+      </div>
+
+      <!--@todo Hamburger Menu-->
+    </div>
+    <!--@todo Mobile Menu-->
+  </div>
+
+  <div class="container min-h-screen">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="main-col">
+          <div class="block">
+            <h1 class="pull-left"></h1>
+            <h4 class="pull-right">
+              <%= topic.title %>
+            </h4>
+            <div class="clearfix"></div>
+            <hr />
+            <ul id="topics">
+              <li id="main-topic" class="topic topic">
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="user-info">
+                      <img class="avatar pull-left" src="img/gravatar.png" />
+                      <ul>
+                        <li><strong>
+                            <%= topic.user_name %>
+                          </strong></li>
+                        <li>
+                          <%= count_topics %> Posts
+                        </li>
+                        <a href="/profile/<%= topic.user_name %>">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <div class="topic-content pull-right">
+            <p>
+              <%= topic.body %>
+            </p>
+          </div>
+
+
+          <!-- DBP_HIGHLIGHTES Managing the Delete segment -->
+          <% if(username===topic.user_name) { %>
+            <form action="/delete-topic/<%= topic.title %>?_method=DELETE" method="POST">
+              <!-- DBP_NOTES If you want to use the method-override middleware to send a DELETE request from your form, you should use the _method=DELETE query parameter -->
+              <button class="btn btn-error btn-xs sm:btn-sm md:btn-md">Delete</button>
+            </form>
+
+            <!-- DBP_HIGHLIGHTES Managing the Update segment -->
+            <!-- DBP_HIGHLIGHTES here the method is post because by pressing the button , the id goes to updateget and updatepost-->
+            <form action="/update/<%= topic.id %>" method="POST">
+              <button class="btn btn-warning btn-xs sm:btn-sm md:btn-md">Update</button>
+            </form>
+            <% } %>
+
+
+        </div>
+      </div>
+    </div>
+    </li>
+    <% replies.forEach(function(reply) { %>
+      <li class="topic topic">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="user-info">
+              <img class="avatar pull-left" src="img/gravatar.png" />
+              <ul>
+                <li><strong>
+                    <%= reply.user_name %>
+                  </strong></li>
+                <!-- <li>43 Posts</li> -->
+                <li><a href="/profile/<%= topic.user_name %>">Profile</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-10">
+            <div class="topic-content pull-right">
+              <p>
+                <%= reply.reply %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <% }); %>
+        </ul>
+        <h3>Reply To Topic</h3>
+        <form role="form">
+          <div class="form-group">
+            <textarea id="reply" rows="10" cols="80" class="form-control" name="reply"></textarea>
+            <script>
+              CKEDITOR.replace("reply");
+            </script>
+          </div>
+          <button label="replybtn" type="submit" class="color btn btn-default">
+            Submit
+          </button>
+        </form>
+  </div>
+  </div>
+  </div>
+  <div class="col-md-4">
+    <div id="sidebar">
+      <div class="block">
+        <h3>Categories</h3>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">All Topics <span class="badge pull-right">14</span></a>
+          <a href="#" class="list-group-item">Design<span class="badge pull-right">4</span></a>
+          <a href="#" class="list-group-item">Development<span class="badge pull-right">9</span></a>
+          <a href="#" class="list-group-item">Business & Marketing
+            <span class="badge pull-right">12</span></a>
+          <a href="#" class="list-group-item">Search Engines<span class="badge pull-right">7</span></a>
+          <a href="#" class="list-group-item">Cloud & Hosting <span class="badge pull-right">3</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <!-- /.container -->
+</body>
+
+</html>

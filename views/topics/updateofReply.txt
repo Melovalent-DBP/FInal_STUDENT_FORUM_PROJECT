@@ -1,0 +1,10 @@
+                        <!-- DBP_HIGHLIGHTES Managing the Update segment -->
+                        <!-- Here the problem may occur due to fetching the topic by title[space can be there]-->
+                        <!-- So we will fetch by topic id [which comes from the database]-->
+                        <!--DBP_NOTES Here we should not use button , because for navigating/getting to the page , we need href-->
+                        <a href="/update-topic/<%= reply.id %>">
+                          <button
+                            class=" edit reply btn btn-warning btn-xs sm:btn-sm md:btn-md"
+                            >Update</button
+                          >
+                        </form>
